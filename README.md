@@ -134,7 +134,7 @@ In summary, type="module" enables modern ES6 module features like import and exp
 ### What is JSX?
 **JSX (JavaScript XML)** is a syntax extension for JavaScript used primarily in React. It allows you to write HTML-like code within your JavaScript files, making it easier to create and manage UI components. JSX gets transformed into regular JavaScript by tools like Babel before being used in the browser. It combines JavaScript expressions and HTML-like syntax, making React code more readable and declarative.
 
-json```
+```
 const heading = React.createElement(
     "h1",
     { id: "heading" },
