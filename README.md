@@ -242,8 +242,8 @@ ReactDOM.render(
 ```
 
 ### Types of functional component rendering
-- <FunctionalComponent />: A self-closing tag used in JSX for components without children. It's concise and indicates an empty element.
+- `<FunctionalComponent />`: A self-closing tag used in JSX for components without children. It's concise and indicates an empty element.
 
-- <FunctionalComponent></FunctionalComponent>: Opening and closing tags used in JSX for components with children. The content goes between these tags.
+- `<FunctionalComponent></FunctionalComponent>`: Opening and closing tags used in JSX for components with children. The content goes between these tags.
 
-Both render the same component, but the choice depends on whether the component has children elements or not. Use <FunctionalComponent /> for no children and <FunctionalComponent></FunctionalComponent> for children.
+Both render the same component, but the choice depends on whether the component has children elements or not. Use <`FunctionalComponent />` for no children and `<FunctionalComponent></FunctionalComponent>` for children.
