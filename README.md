@@ -1,6 +1,6 @@
 # ReactJs
 
-## react -
+## React -
 React is a JavaScript library for creating user interfaces.
 
 The react package contains only the functionality necessary to define React components. It is typically used together with a React renderer like react-dom for the web, or react-native for the native environments.
@@ -26,3 +26,107 @@ For everything else, there's React. You use React to define and create your elem
 The reason React and ReactDOM were split into two libraries was due to the arrival of React Native. React contains functionality utilised in web and mobile apps. ReactDOM functionality is utilised only in web apps. [UPDATE: Upon further research, it's clear my ignorance of React Native is showing. Having the React package common to both web and mobile appears to be more of an aspiration than a reality right now. React Native is at present an entirely different package.]
 
 [See the blog post announcing the v0.14 release](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
+
+### About npm -
+npm is the world's largest software registry. Open source developers from every continent use npm to share and borrow packages, and many organizations use npm to manage private development as well.
+
+npm consists of three distinct components:
+- the website
+- the Command Line Interface (CLI)
+- the registry
+
+**Note** - npm is not stands for the *node package manager*.
+
+### Role of bundlers in react js -
+- Code organization
+- Dependency management
+- Performance optimization
+- Code transformation (using tools like Babel)
+- Asset management (handling CSS, images, fonts)
+- Tree shaking (eliminating unused code)
+- Hot module replacement (HMR) for fast development iteration
+- Source mapping for easier debugging
+- Code splitting for lazy loading and better performance
+- Minification of code for smaller file sizes
+- Polyfilling for browser compatibility
+- Configurability through plugins and loaders
+- Handling of various file formats (JSON, YAML, etc.)
+- Generating static assets for deployment
+- Handling of third-party libraries and modules
+- Optimizing caching strategies
+- Support for module systems (CommonJS, AMD, ES6 modules)
+- Improving SEO through server-side rendering (with tools like Next.js)
+- Enabling progressive web app (PWA) features
+- Analyzing bundle sizes for optimization opportunities
+- Error handling and reporting
+- Integration with development servers
+- Preprocessing (Sass, Less, etc.) for CSS
+- Automatic vendor prefixing for CSS properties
+- Supporting TypeScript or other languages through appropriate plugins
+- Transforming assets (like optimizing images)
+- Incorporating environment variables for different build environments
+- Ensuring consistent code style (linting) through integration with tools like ESLint or Prettier
+- Internationalization support (i18n)
+- Automatically injecting necessary scripts into HTML files
+- Seamless integration with other build tools and CI/CD pipelines
+
+**Note** - We install bundlers as devdependency using *npm i -D*
+
+### What are Dependencies -
+In the context of Node.js and npm (Node Package Manager), dependencies are categorized into two main types: "dependencies" and "devDependencies".
+
+- Dependencies: These are packages that are necessary for your application to run in production. They are the packages that your application needs to work properly when someone installs and uses it. For example, if you're building a web application with React, React itself would be a "dependency" because it's required for the app to function.
+
+- devDependencies: These are packages that are only needed for development and testing purposes. They are not required for the live/production version of your application to run. These packages typically include things like testing libraries (Jest, Mocha), build tools (Webpack, Babel), linters (ESLint, Prettier), and other development-specific tools. They are used during development to help with tasks such as testing, transpiling code, bundling assets, and maintaining code quality.
+
+When someone installs your package using npm (Node Package Manager), by default, both the dependencies and devDependencies are installed, unless the --production flag is used. This is because during development, you often need the development dependencies to work on and test the code. However, when someone installs your package for production, they may only want to install the dependencies to avoid installing unnecessary development tools and libraries.
+
+react and react-dom are dependencies required for the app to function.
+webpack, babel-loader, eslint, and jest are devDependencies needed during development for tasks like bundling, linting, and testing.
+When someone runs npm install to install this package, both dependencies and devDependencies will be installed.
+
+### Signs which are used in dependencies i.e ^ and ~
+In Node.js and npm's package.json files, both the ^ and ~ symbols are used to specify version ranges for dependencies. Here's how they differ:
+
+- Caret (^): Allows updates to the latest version for the specified major version. It will update to the latest minor or patch version for the specified major version. The left-most non-zero digit is considered the major version.
+
+Example: "^1.2.3" allows updates to any version 1.x.x, but not 2.0.0.
+
+- Tilde (~): Allows updates to the latest version for the specified minor version. It will update to the latest patch version for the specified minor version.
+
+Example: "~1.2.3" allows updates to any version 1.2.x, but not 1.3.0.
+Here are some more examples to illustrate the difference:
+
+^1.2.3:
+
+Allows updates to: 1.2.4, 1.3.0, 1.4.5, etc.
+Won't update to: 2.0.0, as it's considered a new major version.
+~1.2.3:
+
+Allows updates to: 1.2.4, 1.2.9, but not 1.3.0.
+Won't update to: 1.4.0 or 2.0.0.
+So, the choice between ^ and ~ depends on how you want to manage updates:
+
+^ is more permissive and will allow minor and patch updates within the specified major version.
+~ is more restrictive and will only allow patch updates within the specified minor version.
+If you want to ensure you only get bug fixes and not new features, you might choose ~. If you're okay with getting new features as long as they don't break compatibility, you might choose ^.
+
+### package.json vs package-lock.json -
+- **package.json**: Contains project metadata, scripts, and high-level dependencies. Developers manually manage this file, specifying the project's name, version, description, main file, scripts, dependencies, and devDependencies.
+
+- **package-lock.json**: Automatically generated by npm/Yarn to lock down the exact version of every installed package and its dependencies. Ensures consistency across different environments by fixing the exact versions used. Developers do not typically modify this file directly; it is used for reproducible builds and to prevent version conflicts when deploying the project.
+
+### HTML src file link -
+- type="module":
+When using <script type="module" src="path/to/script.js"></script>, it indicates that the JavaScript file script.js should be treated as an ES6 module.
+Allows the use of import and export statements for modular JavaScript development.
+Enables modern features like asynchronous module loading (import()).
+Provides better code organization and encapsulation.
+The browser fetches the module using CORS (Cross-Origin Resource Sharing) and MIME type application/javascript.
+- Without type:
+When using <script src="path/to/script.js"></script>, it indicates a regular JavaScript file without any specific module treatment.
+This is the traditional way of including JavaScript.
+All scripts without type="module" are loaded synchronously and executed in the order they appear in the HTML file.
+Global variables and functions are shared across all scripts.
+Does not support import and export statements for module separation.
+In summary, type="module" enables modern ES6 module features like import and export for better code organization and encapsulation. Without type="module", scripts are loaded synchronously and do not have module-specific capabilities.
