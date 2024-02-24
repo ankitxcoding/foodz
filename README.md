@@ -148,3 +148,19 @@ const jsxHeading = <h1 id="jsxHeading">This is a jsx heading!</h1>
 ```
 
 The above codes are equivalant. The only difference is one is core react code and other is jsx code.
+
+JSX transpiled before it reaches the JS and it get done by using Babel.
+
+### What is Babel?
+**Babel** is a JavaScript compiler that converts modern JavaScript code (like ES6+) into versions that can run on older browsers. It's commonly used with React and JSX, allowing developers to write modern code while ensuring compatibility with a wide range of browsers. Babel's plugin system enables customization, and it's an essential tool in modern web development workflows.
+
+Example -
+```
+const heading = <h1>This is an exmaple of Babel transpilation.</h1>
+```
+This JSX code looks like this code which are shown below after Babel transpilation.
+```
+const heading = ("h1", {
+  children: "This is an exmaple of Babel transpilation."
+});
+```
