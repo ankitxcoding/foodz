@@ -134,7 +134,7 @@ In summary, type="module" enables modern ES6 module features like import and exp
 ### What is JSX?
 **JSX (JavaScript XML)** is a syntax extension for JavaScript used primarily in React. It allows you to write HTML-like code within your JavaScript files, making it easier to create and manage UI components. JSX gets transformed into regular JavaScript by tools like Babel before being used in the browser. It combines JavaScript expressions and HTML-like syntax, making React code more readable and declarative.
 
-```
+```jsx
 const heading = React.createElement(
     "h1",
     { id: "heading" },
@@ -143,7 +143,7 @@ const heading = React.createElement(
 ```
 vs
 
-```
+```jsx
 const jsxHeading = <h1 id="jsxHeading">This is a JSX heading!</h1>
 ```
 
@@ -155,11 +155,11 @@ JSX transpiled before it reaches the JS and it get done by using Babel.
 **Babel** is a JavaScript compiler that converts modern JavaScript code (like ES6+) into versions that can run on older browsers. It's commonly used with React and JSX, allowing developers to write modern code while ensuring compatibility with a wide range of browsers. Babel's plugin system enables customization, and it's an essential tool in modern web development workflows.
 
 Example -
-```
+```jsx
 const heading = <h1>This is an example of Babel transpilation.</h1>
 ```
 The above JSX code looks like this below code after Babel transpilation.
-```
+```jsx
 const heading = ("h1", {
   children: "This is an example of Babel transpilation."
 });
@@ -175,7 +175,7 @@ const heading = ("h1", {
 
 Example -
 Class-based Components -
-```
+```jsx
 import React, { Component } from 'react';
 
 class ClassComponent extends Component {
@@ -192,7 +192,7 @@ class ClassComponent extends Component {
 export default ClassComponent;
 ```
 Functional Components -
-```
+```jsx
 const FunctionalComponent = () => {
   return (
     <div>
@@ -207,11 +207,11 @@ export default FunctionalComponent;
 
 ### React Element vs React Component -
 React Element -
-```
+```jsx
 const element = <h1>Hello, React Element!</h1>;
 ```
 React Component -
-```
+```jsx
 const FunctionalComponent = () => {
   return (
     <div>
@@ -225,7 +225,7 @@ const FunctionalComponent = () => {
 **Note** - Functional component name must be start with capital letter.
 
 ### Rendering of the functional component and element in react -
-```
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FunctionalComponent from './FunctionalComponent';
@@ -234,8 +234,8 @@ const element = <h1>Hello, React Element!</h1>;
 
 ReactDOM.render(
   <div>
-    {element} //react element
-    <FunctionalComponent /> //functional component
+    {element} {/*react element*/}
+    <FunctionalComponent /> {/*functional component*/}
   </div>,
   document.getElementById('root')
 );
@@ -256,3 +256,4 @@ Example:
 <FunctionalComponent>
   <p>Child Element</p>
 </FunctionalComponent> // Renders component with children
+```
