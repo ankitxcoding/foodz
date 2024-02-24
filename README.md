@@ -240,6 +240,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+---
 
 ### Types of functional component rendering
 - `<FunctionalComponent />`: A self-closing tag used in JSX for components without children. It's concise and indicates an empty element.
@@ -248,7 +249,7 @@ ReactDOM.render(
 
 Both render the same component, but the choice depends on whether the component has children elements or not. Use <`FunctionalComponent />` for no children and `<FunctionalComponent></FunctionalComponent>` for children.
 
-Example:
+#### Example -
 
 ```jsx
 <FunctionalComponent /> // Renders component without children
