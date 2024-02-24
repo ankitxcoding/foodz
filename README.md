@@ -140,7 +140,10 @@ const heading = React.createElement(
     { id: "heading" },
     "This is a heading!"
 );
+```
+vs
 
+```
 const jsxHeading = <h1 id="jsxHeading">This is a jsx heading!</h1>
 ```
 
