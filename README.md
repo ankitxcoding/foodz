@@ -8,15 +8,15 @@ The react package contains only the functionality necessary to define React comp
 Note: by default, React will be in development mode. The development version includes extra warnings about common mistakes, whereas the production version includes extra performance optimizations and strips all error messages. Don't forget to use the production build when deploying your application.
 
 ### Ways to use react
-- using cdn links
+- Using CDN links
     - **CDN Links** - 
     A content delivery network (CDN) is a network of interconnected servers that speeds up webpage loading for data-heavy applications.
-- using npm with bundlers
+- Using npm with bundlers
     - vite
     - parcel
-    - webpack comes by default with cra
+    - webpack (by default comes with CRA)
 
-### react vs react-dom -
+### React vs ReactDOM -
 React and ReactDOM were only recently split into two different libraries. Prior to v0.14, all ReactDOM functionality was part of React. This may be a source of confusion, since any slightly dated documentation won't mention the React / ReactDOM distinction.
 
 As the name implies, ReactDOM is the glue between React and the DOM. Often, you will only use it for one single thing: mounting with ReactDOM.render(). Another useful feature of ReactDOM is ReactDOM.findDOMNode() which you can use to gain direct access to a DOM element. (Something you should use sparingly in React apps, but it can be necessary.) If your app is "isomorphic", you would also use ReactDOM.renderToString() in your back-end code.
@@ -85,7 +85,7 @@ react and react-dom are dependencies required for the app to function.
 webpack, babel-loader, eslint, and jest are devDependencies needed during development for tasks like bundling, linting, and testing.
 When someone runs npm install to install this package, both dependencies and devDependencies will be installed.
 
-### Signs which are used in dependencies i.e ^ and ~
+### Signs which are used before versions in the dependencies i.e ^ and ~
 In Node.js and npm's package.json files, both the ^ and ~ symbols are used to specify version ranges for dependencies. Here's how they differ:
 
 - Caret (^): Allows updates to the latest version for the specified major version. It will update to the latest minor or patch version for the specified major version. The left-most non-zero digit is considered the major version.
@@ -144,10 +144,10 @@ const heading = React.createElement(
 vs
 
 ```
-const jsxHeading = <h1 id="jsxHeading">This is a jsx heading!</h1>
+const jsxHeading = <h1 id="jsxHeading">This is a JSX heading!</h1>
 ```
 
-The above codes are equivalant. The only difference is one is core react code and other is jsx code.
+The above codes are equivalant. The only difference is one is core react code and other is JSX code.
 
 JSX transpiled before it reaches the JS and it get done by using Babel.
 
@@ -156,11 +156,94 @@ JSX transpiled before it reaches the JS and it get done by using Babel.
 
 Example -
 ```
-const heading = <h1>This is an exmaple of Babel transpilation.</h1>
+const heading = <h1>This is an example of Babel transpilation.</h1>
 ```
-This JSX code looks like this code which are shown below after Babel transpilation.
+The above JSX code looks like this below code after Babel transpilation.
 ```
 const heading = ("h1", {
-  children: "This is an exmaple of Babel transpilation."
+  children: "This is an example of Babel transpilation."
 });
 ```
+
+### React Components -
+- Class Based Components
+    - This is the old way of writing components in react.
+    - Writing components this way is no longer considered the industry standard nowadays.
+- Functional Components
+    - This is the new way of writing components in react.
+    - Writing components this way is the recommended and industry standard.
+
+Example -
+Class-based Components -
+```
+import React, { Component } from 'react';
+
+class ClassComponent extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello from Class Component!</h1>
+        <p>This is a class-based component.</p>
+      </div>
+    );
+  }
+}
+
+export default ClassComponent;
+```
+Functional Components -
+```
+const FunctionalComponent = () => {
+  return (
+    <div>
+      <h1>Hello from Functional Component!</h1>
+      <p>This is a functional component.</p>
+    </div>
+  );
+};
+
+export default FunctionalComponent;
+```
+
+### React Element vs React Component -
+React Element -
+```
+const element = <h1>Hello, React Element!</h1>;
+```
+React Component -
+```
+const FunctionalComponent = () => {
+  return (
+    <div>
+      <h1>Hello, Functional Component!</h1>
+      <p>This is a functional component.</p>
+    </div>
+  );
+};
+```
+
+**Note** - Functional component name must be start with capital letter.
+
+### Rendering of the functional component and element in react -
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import FunctionalComponent from './FunctionalComponent';
+
+const element = <h1>Hello, React Element!</h1>;
+
+ReactDOM.render(
+  <div>
+    {element} //react element
+    <FunctionalComponent /> //functional component
+  </div>,
+  document.getElementById('root')
+);
+```
+
+### Types of functional component rendering
+- <FunctionalComponent />: A self-closing tag used in JSX for components without children. It's concise and indicates an empty element.
+
+- <FunctionalComponent></FunctionalComponent>: Opening and closing tags used in JSX for components with children. The content goes between these tags.
+
+Both render the same component, but the choice depends on whether the component has children elements or not. Use <FunctionalComponent /> for no children and <FunctionalComponent></FunctionalComponent> for children.
