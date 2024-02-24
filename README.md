@@ -173,7 +173,7 @@ const heading = ("h1", {
     - This is the new way of writing components in react.
     - Writing components this way is the recommended and industry standard.
 
-Example -
+#### Example -
 Class-based Components -
 ```jsx
 import React, { Component } from 'react';
