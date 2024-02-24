@@ -25,4 +25,4 @@ For everything else, there's React. You use React to define and create your elem
 
 The reason React and ReactDOM were split into two libraries was due to the arrival of React Native. React contains functionality utilised in web and mobile apps. ReactDOM functionality is utilised only in web apps. [UPDATE: Upon further research, it's clear my ignorance of React Native is showing. Having the React package common to both web and mobile appears to be more of an aspiration than a reality right now. React Native is at present an entirely different package.]
 
-[See the blog post announcing the v0.14 release] (https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
+[See the blog post announcing the v0.14 release](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
