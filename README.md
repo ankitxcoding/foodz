@@ -247,3 +247,12 @@ ReactDOM.render(
 - `<FunctionalComponent></FunctionalComponent>`: Opening and closing tags used in JSX for components with children. The content goes between these tags.
 
 Both render the same component, but the choice depends on whether the component has children elements or not. Use <`FunctionalComponent />` for no children and `<FunctionalComponent></FunctionalComponent>` for children.
+
+Example:
+
+```jsx
+<FunctionalComponent /> // Renders component without children
+
+<FunctionalComponent>
+  <p>Child Element</p>
+</FunctionalComponent> // Renders component with children
