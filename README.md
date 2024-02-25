@@ -275,3 +275,94 @@ Both render the same component, but the choice depends on whether the component 
 ```
 
 ---
+
+## What is props?
+In React, "props" (short for properties) are a way to pass data from a parent component to a child component. They are read-only and help to make your components more dynamic and reusable.
+
+**Using Props** -
+- Passing Props: You pass props to a component when you use that component in JSX.
+- Receiving Props: In the child component, you can access the passed props as an object.
+
+#### Example -
+Suppose we have a Person component that takes a name prop -
+```jsx
+// ParentComponent.js
+import React from 'react';
+import Person from './Person';
+
+const ParentComponent = () => {
+  return <Person name="Alice" />;
+};
+```
+```jsx
+// Person.js (Child Component)
+import React from 'react';
+
+const Person = (props) => {
+  return <p>Hello, {props.name}!</p>;
+};
+
+export default Person;
+```
+
+- In ParentComponent, we use <Person name="Alice" /> to render the Person component and pass it a prop named name with the value "Alice".
+- In Person, we receive props as an object. We access the name prop using props.name to display the name.
+**Benefits of Props** -
+- Dynamic: Props allow components to be dynamic, as they can receive different data each time they are used.
+- Reusable: Components can be reused with different data, making your code more modular.
+- Passing Data Down: Props flow in one direction, from parent to child, which helps maintain a unidirectional data flow in React applications.
+**Modifying Props** -
+Props are read-only. This means that inside a component, you cannot directly modify the props passed to it. If you need to modify the data, you should do so in the parent component and pass the modified data as a new prop.
+
+#### Example -
+- In `ParentComponent`, we use `<Person name="Alice" />` to render the `Person` component and pass it a prop named `name` with the value "`Alice`".
+- In `Person`, we receive `props` as an object. We access the `name` prop using `props.name` to display the name.
+**Benefits of Props** -
+- Dynamic: Props allow components to be dynamic, as they can receive different data each time they are used.
+- Reusable: Components can be reused with different data, making your code more modular.
+- Passing Data Down: Props flow in one direction, from parent to child, which helps maintain a unidirectional data flow in React applications.
+**Modifying Props** -
+Props are read-only. This means that inside a component, you cannot directly modify the props passed to it. If you need to modify the data, you should do so in the parent component and pass the modified data as a new prop.
+
+#### Example -
+If you want to modify the `name` in the `Person` component, you would do it in `ParentComponent` and pass the modified name as a prop -
+```jsx
+// ParentComponent.js
+import React from 'react';
+import Person from './Person';
+
+const ParentComponent = () => {
+  const modifiedName = "Bob";
+  return <Person name={modifiedName} />;
+};
+```
+```jsx
+// Person.js (Child Component)
+import React from 'react';
+
+const Person = (props) => {
+  return <p>Hello, {props.name}!</p>;
+};
+
+export default Person;
+```
+Now, the Person component will receive the modified name as a prop and display "Hello, Bob!".
+
+---
+
+## What is Config-driven UI?
+"Config-driven UI" refers to a design approach where the user interface (UI) and its behavior are primarily controlled and defined by configuration data rather than hard-coded logic. This means that instead of writing code to define how the UI looks and behaves, developers use configuration files or data structures to specify these aspects. The UI components interpret this configuration data to render the appropriate UI elements and handle interactions.
+
+**Key Concepts** -
+- Configuration Data: This includes settings, rules, and parameters that define the UI components, their layout, styling, behavior, and other properties.
+- Separation of Concerns: Config-driven UI design promotes a clear separation between the UI logic and the configuration data. Developers focus on creating reusable UI components, while designers or product managers configure how these components should behave.
+
+**Advantages** -
+- Flexibility: Changes to the UI can be made without modifying the code. This allows for rapid prototyping and easier customization.
+- Reusable Components: UI components are designed to be highly reusable since they are configured through data. This promotes a consistent design language across an application or platform.
+- Easier Maintenance: Developers can focus on building robust, well-tested UI components, while configuration changes can be managed separately.
+
+Config-driven UI is useful for projects needing flexible, customizable interfaces without frequent code changes. It's commonly used in content management systems, data-driven applications, and platforms with dynamic UI requirements.
+
+---
+
