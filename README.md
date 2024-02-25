@@ -366,3 +366,25 @@ Config-driven UI is useful for projects needing flexible, customizable interface
 
 ---
 
+## .js vs .jsx
+**.js Extension** -
+- Components written in JSX can be saved with a .js extension.
+- Requires a babel setup to transpile JSX to JavaScript.
+- No explicit indication that the file contains JSX code.
+- More common in older React projects or projects with different conventions.
+
+**.jsx Extension** -
+- Components written in JSX can also be saved with a .jsx extension.
+- Typically used to explicitly indicate that the file contains JSX code.
+- Some developers prefer this for clarity and organization in React projects.
+
+**Usage** -
+- Both extensions work perfectly fine in React projects.
+- If your project has a babel setup to transpile JSX to JavaScript (which is common in most React projects), then both .js and .jsx files will be compiled correctly.
+- The choice between .js and .jsx is often a matter of personal or project convention. Some projects use .js for all JavaScript files, while others use .jsx specifically for files containing JSX code for clarity.
+
+**Bundlers and JSX Extensions** -
+- Webpack - Supports both .js and .jsx files. Can handle JSX syntax within .js files.
+- Parcel - Similar to Webpack, it supports both extensions and can transpile JSX within .js files.
+- Rollup - Rollup also supports JSX syntax within .js files without requiring the .jsx extension.
+- Vite - Vite, by default, does not allow JSX syntax within .js files. The preferred and recommended convention within the Vite community is to use .jsx for files with JSX code. This is enforced by Vite's default configuration.
