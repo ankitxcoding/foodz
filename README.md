@@ -448,7 +448,7 @@ It is considered a best practice to avoid hardcoding data directly into React co
 - Code Consistency - Ensures that the same data is used consistently throughout the application.
 
 #### Example of some hardcoded values -
-- Text Content
+-Text Content
   - Titles
   - Labels
   - Error Messages
@@ -467,9 +467,9 @@ It is considered a best practice to avoid hardcoding data directly into React co
 - Icons and Images
   - Icon URLs
   - Image Paths
-- Default Values
+-Default Values
   - Default state values for components
-- Roles and Permissions
+-Roles and Permissions
   - User Roles
 
 ---
@@ -541,31 +541,37 @@ React uses a process called "reconciliation" to efficiently update the user inte
 Reconciliation Steps -
 
 **Render Virtual DOM** -
-  - When a component's state or props change, React re-renders the component and generates a new tree of React elements (virtual DOM).
+- When a component's state or props change, React re-renders the component and generates a new tree of React elements (virtual DOM).
+
 **Diffing** -
-  - React compares the new virtual DOM tree with the previous one to find the differences or changes.
-  - It does this by a process called "diffing" or "reconciliation".
+- React compares the new virtual DOM tree with the previous one to find the differences or changes.
+- It does this by a process called "diffing" or "reconciliation".
+
 **Keyed Elements** -
-  - React uses "keys" to identify elements in lists. Keys help React identify which items have changed, are added, or removed.
-  - Keys should be unique among sibling elements and should remain consistent across renders. They help React optimize updates by identifying elements uniquely.
-  **Update Strategy** -
+- React uses "keys" to identify elements in lists. Keys help React identify which items have changed, are added, or removed.
+- Keys should be unique among sibling elements and should remain consistent across renders. They help React optimize updates by identifying elements uniquely.
+
+**Update Strategy** -
 - React's diffing algorithm minimizes DOM updates by -
   - Inserting New Elements - Elements that are new are added to the DOM.
   - Updating Changed Elements - Elements that have changed are updated in place.
   - Removing Unused Elements - Elements that are no longer present are removed from the DOM.
   - Reordering Elements - Elements that have moved are reordered without recreating them.
+
 **Component Reconciliation** -
-  - React compares components in the new tree with those in the previous tree.
-  - If a component type remains the same, React updates the props of the existing component.
-  - If a component type changes, React unmounts the old component and mounts the new one.
+- React compares components in the new tree with those in the previous tree.
+- If a component type remains the same, React updates the props of the existing component.
+- If a component type changes, React unmounts the old component and mounts the new one.
+
 **Child Component Reconciliation** -
-  - React compares the children of components using their keys.
-  - If a child has a key that matches the previous tree, React updates the child.
-  - If a child does not have a matching key, React treats it as a new child or a removed child based on its position.
+- React compares the children of components using their keys.
+- If a child has a key that matches the previous tree, React updates the child.
+- If a child does not have a matching key, React treats it as a new child or a removed child based on its position.
+
 **Benefits of Reconciliation** -
-  - Efficiency - React's reconciliation algorithm reduces the number of DOM manipulations, improving performance.
-  - Optimization - Using keys and a smart diffing strategy, React minimizes the impact of updates, resulting in faster rendering.
-  - Consistency - Reconciliation ensures that the UI stays in sync with the underlying data changes, providing a consistent user experience.
+- Efficiency - React's reconciliation algorithm reduces the number of DOM manipulations, improving performance.
+- Optimization - Using keys and a smart diffing strategy, React minimizes the impact of updates, resulting in faster rendering.
+- Consistency - Reconciliation ensures that the UI stays in sync with the underlying data changes, providing a consistent user experience.
 
 React's reconciliation algorithm is a key part of what makes React efficient and performant, especially in applications with dynamic and frequently changing data. It allows developers to write declarative code while React takes care of updating the DOM efficiently.
 
