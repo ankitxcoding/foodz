@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <div className="m-4 flex justify-between items-center border-b-2 border-black">
+    <div className="flex justify-between items-center shadow-sm shadow-gray-500">
       <img className="m-4 w-16" src={LOGO} alt="logo" />
       <ul className="flex">
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">

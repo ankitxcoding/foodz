@@ -5,14 +5,14 @@ const Shimmer = () => {
       shimmerCards.push(
         <div
           key={i}
-          className="m-4 w-52 h-auto bg-gray-200 rounded-lg overflow-hidden"
+          className="m-4 w-52 h-auto bg-gray-100 shadow-lg shadow-slate-300 rounded-lg overflow-hidden"
         >
-          <div className="w-auto h-32 bg-gray-300 text-transparent">.</div>
-          <div className="w-3/4 mx-2 my-4 bg-gray-300 text-transparent">.</div>
-          <div className="w-2/3 mx-2 my-4 bg-gray-300 text-transparent">.</div>
-          <div className="w-1/4 mx-2 my-4 bg-gray-300 text-transparent">.</div>
-          <div className="w-1/2 mx-2 my-4 bg-gray-300 text-transparent">.</div>
-          <div className="w-1/3 mx-2 my-4 bg-gray-300 text-transparent">.</div>
+          <div className="w-auto h-32 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
+          <div className="w-3/4 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
+          <div className="w-2/3 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
+          <div className="w-1/4 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
+          <div className="w-1/2 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
+          <div className="w-1/3 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
         </div>
       );
     }
@@ -22,13 +22,13 @@ const Shimmer = () => {
   return (
     <>
       <div className="flex m-4">
-        <div className="mx-1 px-20 text-transparent bg-gray-300 rounded-lg">
+        <div className="mx-1 px-20 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300">
           Search
         </div>
-        <div className="mx-1 px-4 text-transparent bg-gray-300 rounded-lg">
+        <div className="mx-1 px-4 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300">
           Search
         </div>
-        <button className="mx-1 px-4 text-transparent bg-gray-300 rounded-lg">
+        <button className="mx-1 px-4 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300">
           Top Rated Restaurant
         </button>
       </div>
