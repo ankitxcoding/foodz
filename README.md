@@ -691,3 +691,203 @@ The Virtual DOM (Document Object Model) is a concept used in React and other mod
 - Forms: Placeholder loading effects can be used in forms for input fields.
 
 ---
+
+## React Router DOM -
+**Routing Library** - `react-router-dom` is a popular library in React for handling routing and navigation in web applications.
+**Single Page Applications (SPA)** - Designed for SPAs where the content is dynamically loaded on the same page without full page refreshes.
+**Key Features** -
+- Declarative Routing - Allows defining routes using JSX components.
+- Dynamic Rendering - Renders components based on the URL.
+- Nested Routes - Supports nested route configurations.
+- History Management - Keeps track of browser history for back and forward navigation.
+- URL Parameters - Easily extract and use URL parameters.
+- Redirects - Implements redirects to different routes.
+- Programmatic Navigation - Allows navigation through code.
+
+**Installation** -
+`npm install react-router-dom`
+
+#### Usage Example -
+```jsx
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+```
+**Components** -
+`<Router>` - Wraps the application and provides routing functionality.
+`<Route>` - Represents a route and renders a component based on the URL.
+`<Switch>` - Renders the first child `<Route>` or `<Redirect>` that matches the URL.
+`<Link>` - Creates links to navigate between routes.
+`<Redirect>` - Redirects the user to another route.
+
+**Benefits** -
+- Simple Configuration - Easy to define routes and render components.
+- History Handling - Manages browser history for smooth navigation.
+- Dynamic Routing - Components render based on the URL, enabling dynamic content loading.
+
+**Summary** -
+`react-router-dom` is a powerful library for adding routing and navigation to React applications. It provides components and utilities to easily manage different views, handle navigation, and create dynamic SPAs with smooth transitions between pages.
+
+### `createBrowserRouter`
+This is the recommended router for all React Router web projects. It uses the DOM History API to update the URL and manage the history stack.
+It also enables the v6.4 data APIs like loaders, actions, fetchers and more.
+
+#### `routes`
+An array of `Route` objects with nested routes on the `children` property.
+```jsx
+createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    children: [
+      {
+        path: "events/:id",
+        element: <Event />,
+        loader: eventLoader,
+      },
+    ],
+  },
+]);
+```
+
+### `<RouterProvider>`
+All data router objects are passed to this component to render your app and enable the rest of the data APIs.
+```jsx
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider
+    router={router}
+    fallbackElement={<BigSpinner />}
+  />
+);
+```
+
+### `<Outlet>`
+An `<Outlet>` should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.
+```jsx
+function Dashboard() {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+
+      {/* This element will render either <DashboardMessages> when the URL is
+          "/messages", <DashboardTasks> at "/tasks", or null if it is "/"
+      */}
+      <Outlet />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Dashboard />}>
+        <Route
+          path="messages"
+          element={<DashboardMessages />}
+        />
+        <Route path="tasks" element={<DashboardTasks />} />
+      </Route>
+    </Routes>
+  );
+}
+```
+
+### `<Link>`
+A `<Link>` is an element that lets the user navigate to another page by clicking or tapping on it. In react-router-dom, a `<Link>` renders an accessible `<a>` element with a real href that points to the resource it's linking to. This means that things like right-clicking a `<Link>` work as you'd expect. You can use `<Link reloadDocument>` to skip client side routing and let the browser handle the transition normally (as if it were an `<a href>`).
+```jsx
+import * as React from "react";
+import { Link } from "react-router-dom";
+
+function UsersIndexPage({ users }) {
+  return (
+    <div>
+      <h1>Users</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link to={user.id}>{user.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+A relative `<Link to>` value (that does not begin with `/`) resolves relative to the parent route, which means that it builds upon the URL path that was matched by the route that rendered that` <Link>`. It may contain `..` to link to routes further up the hierarchy. In these cases, `..` works exactly like the command-line `cd` function; each `..` removes one segment of the parent path.
+
+**Note** - `<Link to>` with a `..` behaves differently from a normal `<a href>` when the current URL ends with `/`. `<Link to>` ignores the trailing slash, and removes one URL segment for each `..`. But an `<a href>` value handles `..` differently when the current URL ends with `/` vs when it does not.
+
+---
+
+## Types of Routing -
+In web applications, there are two main types of routing -
+
+**Client-Side Routing** -
+- Type - Also known as single-page application (SPA) routing.
+- Handling - Entirely managed on the client-side, typically using JavaScript frameworks/libraries like React, Vue.js, or Angular.
+- Characteristics -
+  - No Page Reload - When a user navigates to different views or pages, the URL changes but the page does not fully reload.
+  - Dynamic Content - Allows for dynamic content loading without refreshing the entire page.
+  - History Management - Libraries like react-router-dom, vue-router, or @angular/router manage browser history and state changes.
+- Benefits -
+- Improved Performance - Faster navigation as only components are swapped, not entire pages.
+- Smooth User Experience - Seamless transitions between views.
+- Optimized for SPAs - Ideal for single-page applications where content changes dynamically.
+
+Example - React Router, Vue Router, Angular Router.
+
+**Server-Side Routing** -
+- Type - Traditional web page routing.
+- Handling - The server determines the content to be displayed based on the URL requested by the client.
+- Characteristics -
+  - Full Page Reload - Each navigation request results in a full reload of the page.
+  - Static Pages - Web server serves static HTML files for each page.
+  - Less Dynamic - More suitable for static or less dynamic websites.
+  - URL Mapping - URLs map directly to physical files or routes on the server.
+- Benefits -
+  -Search Engine Optimization (SEO): Easier for search engines to crawl and index pages.
+  -Clear URL Structure: URLs directly represent the page being accessed.
+  -Traditional Web: Fits well with traditional multi-page websites.
+  
+Example - PHP routing, Node.js with Express.js routing, Ruby on Rails routing.

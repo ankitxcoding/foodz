@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LOGO } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [login, setLogin] = useState("Login");
@@ -13,16 +14,16 @@ const Header = () => {
       <img className="m-4 w-16" src={LOGO} alt="logo" />
       <ul className="flex">
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
-          Home
+          <Link to="/">Home</Link>
         </li>
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
-          About Us
+          <Link to="/about">About Us</Link>
         </li>
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
-          Contact Us
+          <Link to="/contact">Contact Us</Link>
         </li>
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
-          Cart
+          <Link to="cart">Cart</Link>
         </li>
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
           <button onClick={isLogin}>{login}</button>
