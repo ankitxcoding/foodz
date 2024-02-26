@@ -1,6 +1,7 @@
 import { RES_CARD_API } from "../utils/constants";
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 const RestaurantContainer = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -62,7 +63,9 @@ const RestaurantContainer = () => {
     }
   };
 
-  return (
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="m-4">
         <input
@@ -89,7 +92,10 @@ const RestaurantContainer = () => {
       <div>
         <ul className="flex flex-wrap">
           {filteredRestaurants.map((restaurant) => (
-            <RestaurantCard key={restaurant?.info?.id} resDetails={restaurant} />
+            <RestaurantCard
+              key={restaurant?.info?.id}
+              resDetails={restaurant}
+            />
           ))}
         </ul>
       </div>

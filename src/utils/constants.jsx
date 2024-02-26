@@ -4,4 +4,5 @@ export const LOGO =
 export const RES_CARD_API =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627";
 
-export const RES_IMG="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660,h_400,c_fill/"
+export const RES_IMG =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
