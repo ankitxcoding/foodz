@@ -67,7 +67,7 @@ const RestaurantContainer = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="m-4">
+      <div className="m-4 flex justify-center">
         <input
           className="border-2 border-black px-2 m-1 rounded-md"
           type="text"
@@ -90,7 +90,7 @@ const RestaurantContainer = () => {
         </button>
       </div>
       <div>
-        <ul className="flex flex-wrap">
+        <ul className="flex flex-wrap justify-center">
           {filteredRestaurants.map((restaurant) => (
             <RestaurantCard
               key={restaurant?.info?.id}

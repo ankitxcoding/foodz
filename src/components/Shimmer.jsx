@@ -5,7 +5,7 @@ const Shimmer = () => {
       shimmerCards.push(
         <div
           key={i}
-          className="m-4 w-52 h-auto bg-gray-100 shadow-lg shadow-slate-300 rounded-lg overflow-hidden"
+          className="m-5 w-60 h-auto bg-gray-100 shadow-lg shadow-gray-300 rounded-lg overflow-hidden"
         >
           <div className="w-auto h-32 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
           <div className="w-3/4 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
@@ -21,7 +21,7 @@ const Shimmer = () => {
 
   return (
     <>
-      <div className="flex m-4">
+      <div className="flex m-4 justify-center">
         <div className="mx-1 px-20 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300">
           Search
         </div>
@@ -32,7 +32,7 @@ const Shimmer = () => {
           Top Rated Restaurant
         </button>
       </div>
-      <div className="m-4 flex flex-wrap">{shimmerBlocks(12)}</div>
+      <div className="m-4 flex flex-wrap justify-center">{shimmerBlocks(12)}</div>
     </>
   );
 };

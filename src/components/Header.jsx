@@ -22,9 +22,6 @@ const Header = () => {
           Contact Us
         </li>
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
-          Account
-        </li>
-        <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
           Cart
         </li>
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
