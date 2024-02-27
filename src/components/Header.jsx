@@ -11,7 +11,9 @@ const Header = () => {
 
   return (
     <div className="flex justify-between items-center shadow-sm shadow-gray-500">
-      <img className="m-4 w-16" src={LOGO} alt="logo" />
+      <Link to="/">
+        <img className="m-4 w-16" src={LOGO} alt="logo" />
+      </Link>
       <ul className="flex">
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
           <Link to="/">Home</Link>
