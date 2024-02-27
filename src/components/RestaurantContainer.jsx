@@ -69,7 +69,7 @@ const RestaurantContainer = () => {
     <>
       <div className="m-4 flex justify-center">
         <input
-          className="border-2 border-black px-2 m-1 rounded-md"
+          className="border-2 border-black w-1/4 px-4 py-2 m-1 rounded-md"
           type="text"
           placeholder="Search Restaurants"
           value={searchRestaurant}
@@ -77,29 +77,28 @@ const RestaurantContainer = () => {
           onKeyDown={handleKeyDown}
         />
         <button
-          className="border-2 border-black px-2 m-1 rounded-md"
+          className="border-2 border-black bg-black text-white px-4 py-2 m-1 rounded-md"
           onClick={searchForRestaurants}
         >
           Search
         </button>
         <button
-          className="border-2 border-black px-2 m-1 rounded-md"
+          className="border-2 border-black bg-black text-white px-4 py-2 m-1 rounded-md"
           onClick={topRatedRestaurants}
         >
           {topRatedRestaurantsText}
         </button>
       </div>
-      <div>
-        <ul className="flex flex-wrap justify-center">
-          {filteredRestaurants.map((restaurant) => (
-            <Link
-              key={restaurant?.info?.id}
-              to={"restaurants/" + restaurant?.info?.id}
-            >
-              <RestaurantCard resDetails={restaurant} />
-            </Link>
-          ))}
-        </ul>
+      <div className="flex flex-wrap justify-center">
+        {filteredRestaurants.map((restaurant) => (
+          <Link
+            key={restaurant?.info?.id}
+            to={"restaurants/" + restaurant?.info?.id}
+            className="mt-4"
+          >
+            <RestaurantCard resDetails={restaurant} />
+          </Link>
+        ))}
       </div>
     </>
   );
