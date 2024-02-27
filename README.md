@@ -833,6 +833,57 @@ function App() {
 }
 ```
 
+#### Example Code -
+```jsx
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./App.css";
+import Body from "./components/Body";
+import Header from "./components/Header";
+import Contact from "./components/Contact";
+import About from "./components/About";
+import Cart from "./components/Cart";
+
+function App() {
+  const Layout = () => {
+    return (
+      <>
+        <Header />
+        <Outlet />
+      </>
+    );
+  };
+
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Body />,
+        },
+        {
+          path: "about",
+          element: <About />,
+        },
+        {
+          path: "contact",
+          element: <Contact />,
+        },
+        {
+          path: "cart",
+          element: <Cart />,
+        },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={appRouter} />;
+}
+
+export default App;
+```
+
 ### `<Link>`
 A `<Link>` is an element that lets the user navigate to another page by clicking or tapping on it. In react-router-dom, a `<Link>` renders an accessible `<a>` element with a real href that points to the resource it's linking to. This means that things like right-clicking a `<Link>` work as you'd expect. You can use `<Link reloadDocument>` to skip client side routing and let the browser handle the transition normally (as if it were an `<a href>`).
 ```jsx
@@ -891,3 +942,65 @@ Example - React Router, Vue Router, Angular Router.
   -Traditional Web: Fits well with traditional multi-page websites.
   
 Example - PHP routing, Node.js with Express.js routing, Ruby on Rails routing.
+
+## What is dynamic route?
+A dynamic route in web development refers to a route or URL pattern that includes dynamic segments. These segments are variable parts of the URL that can change, allowing for more flexible and dynamic navigation within an application. In React Router or similar routing libraries, dynamic routes are often defined using parameters in the route path.
+
+**Characteristics** -
+- Variable Segments - Dynamic routes have segments that are not fixed and can change based on user input or data.
+- Parameterized - Parameters are used to capture these dynamic segments from the URL.
+- Flexible - Enables handling various data based on the dynamic part of the URL.
+- Example - Consider a blog application where each blog post has a unique ID. The URL structure for a dynamic route might be `/blog/:postId`, where `:postId` is a placeholder for the actual ID of the blog post.
+
+#### Example -
+**Route Definition** -
+```jsx
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Post from './components/Post';
+
+function App() {
+  return (
+    <Router>
+      <Route path="/blog/:postId" component={Post} />
+    </Router>
+  );
+}
+```
+**Accessing Parameters in Component** -
+```jsx
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+const Post = () => {
+  let { postId } = useParams();
+
+  return <div>Post ID: {postId}</div>;
+};
+
+export default Post;
+```
+### `useParams` -
+The `useParams` hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the `<Route path>`. Child routes inherit all params from their parent routes.
+```jsx
+import * as React from 'react';
+import { Routes, Route, useParams } from 'react-router-dom';
+
+function ProfilePage() {
+  // Get the userId param from the URL.
+  let { userId } = useParams();
+  // ...
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="users">
+        <Route path=":userId" element={<ProfilePage />} />
+        <Route path="me" element={...} />
+      </Route>
+    </Routes>
+  );
+}
+```
+
+---

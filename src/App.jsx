@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Cart from "./components/Cart";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 function App() {
   const Layout = () => {
@@ -36,6 +37,10 @@ function App() {
         {
           path: "cart",
           element: <Cart />,
+        },
+        {
+          path: "/restaurants/:resId",
+          element: <RestaurantMenu />,
         },
       ],
     },

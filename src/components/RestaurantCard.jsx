@@ -13,7 +13,7 @@ const RestaurantCard = (prop) => {
   } = resDetails.info;
 
   return (
-    <div className="w-60 m-5 rounded-lg shadow-lg shadow-slate-300 overflow-hidden hover:scale-105 duration-300">
+    <div className="w-60 h-[95%] m-5 rounded-lg shadow-lg shadow-slate-300 overflow-hidden hover:scale-105 duration-300">
       <img src={RES_IMG + cloudinaryImageId} alt="restaurantImages" />
       <h1 className="p-2 font-bold">{name}</h1>
       <h2 className="p-2 font-semibold">{cuisines.join(", ")}</h2>

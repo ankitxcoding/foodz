@@ -2,6 +2,7 @@ import { RES_CARD_API } from "../utils/constants";
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const RestaurantContainer = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -29,7 +30,6 @@ const RestaurantContainer = () => {
     const restaurantData = await checkJsonData(json);
     setListOfRestaurants(restaurantData);
     setFilteredRestaurants(restaurantData);
-    console.log(json);
   };
 
   useEffect(() => {
@@ -92,10 +92,12 @@ const RestaurantContainer = () => {
       <div>
         <ul className="flex flex-wrap justify-center">
           {filteredRestaurants.map((restaurant) => (
-            <RestaurantCard
+            <Link
               key={restaurant?.info?.id}
-              resDetails={restaurant}
-            />
+              to={"restaurants/" + restaurant?.info?.id}
+            >
+              <RestaurantCard resDetails={restaurant} />
+            </Link>
           ))}
         </ul>
       </div>

@@ -7,12 +7,12 @@ const Shimmer = () => {
           key={i}
           className="m-5 w-60 h-auto bg-gray-100 shadow-lg shadow-gray-300 rounded-lg overflow-hidden"
         >
-          <div className="w-auto h-32 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
-          <div className="w-3/4 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
-          <div className="w-2/3 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
-          <div className="w-1/4 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
-          <div className="w-1/2 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
-          <div className="w-1/3 mx-2 my-4 bg-gray-200 text-transparent shadow shadow-gray-300">.</div>
+          <div className="w-auto h-32 bg-gray-200 shadow shadow-gray-300"></div>
+          <div className="w-3/4 h-6 mx-2 my-4 bg-gray-200 shadow shadow-gray-300"></div>
+          <div className="w-2/3 h-6 mx-2 my-4 bg-gray-200 shadow shadow-gray-300"></div>
+          <div className="w-1/4 h-6 mx-2 my-4 bg-gray-200 shadow shadow-gray-300"></div>
+          <div className="w-1/2 h-6 mx-2 my-4 bg-gray-200 shadow shadow-gray-300"></div>
+          <div className="w-1/3 h-6 mx-2 my-4 bg-gray-200 shadow shadow-gray-300"></div>
         </div>
       );
     }
@@ -32,7 +32,7 @@ const Shimmer = () => {
           Top Rated Restaurant
         </button>
       </div>
-      <div className="m-4 flex flex-wrap justify-center">{shimmerBlocks(12)}</div>
+      <div className="m-4 flex flex-wrap justify-center">{shimmerBlocks(10)}</div>
     </>
   );
 };
