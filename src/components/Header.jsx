@@ -10,11 +10,11 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center shadow-sm shadow-gray-500">
+    <div className="flex flex-col sm:flex-row justify-between items-center shadow-sm shadow-gray-500">
       <Link to="/">
         <img className="m-4 w-16 rounded-md" src={LOGO} alt="logo" />
       </Link>
-      <ul className="flex">
+      <ul className="flex flex-col mr-4 sm:flex-row sm:space-x-4">
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
           <Link to="/">Home</Link>
         </li>
