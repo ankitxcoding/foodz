@@ -1,5 +1,5 @@
+import LOGO from "../assets/images/logo.png";
 import { useState } from "react";
-import { LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center shadow-sm shadow-gray-500">
       <Link to="/">
-        <img className="m-4 w-16" src={LOGO} alt="logo" />
+        <img className="m-4 w-16 rounded-md" src={LOGO} alt="logo" />
       </Link>
       <ul className="flex">
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">

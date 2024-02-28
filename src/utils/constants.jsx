@@ -1,6 +1,3 @@
-export const LOGO =
-  "https://play-lh.googleusercontent.com/rolUGAfG9YvT5ytKbIHAR9GThBa_nR-lU33UbFzqJinj1baXcQDrCc0vZmGQxw_rl2Q=w240-h480-rw";
-
 export const RES_CARD_API =
   "https://foodz-server.onrender.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
