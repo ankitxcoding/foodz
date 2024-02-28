@@ -14,6 +14,10 @@ const RestaurantContainer = () => {
     "Top Rated Restaurants"
   );
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const fetchData = async () => {
     const data = await fetch(RES_CARD_API);
     const json = await data.json();
@@ -31,10 +35,6 @@ const RestaurantContainer = () => {
     setListOfRestaurants(restaurantData);
     setFilteredRestaurants(restaurantData);
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const topRatedRestaurants = () => {
     const filteredTopRestaurants = listOfRestaurants.filter(
