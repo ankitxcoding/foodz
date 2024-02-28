@@ -1004,3 +1004,83 @@ function App() {
 ```
 
 ---
+
+## What is modularity?
+Modularity in software development refers to the concept of breaking down a software system into smaller, self-contained, and reusable components or modules. These modules encapsulate specific functionalities, have well-defined interfaces, and can be developed, tested, and maintained independently. Here's a concise overview -
+
+Characteristics of Modularity -
+  - Encapsulation - Each module hides its internal workings and exposes a clean interface for interaction with other modules.
+  - Reusability - Modules can be reused in different parts of the application or even in other applications.
+  - Independence - Modules are independent units, reducing interdependencies between different parts of the system.
+  - Scalability - Easier to scale the system by adding or modifying modules without affecting the entire system.
+  - Maintenance - Simplifies maintenance as changes to one module have minimal impact on others.
+  - Testing - Modules can be tested individually, allowing for easier debugging and ensuring better code quality.
+
+- Benefits of Modularity -
+  - Code Organization - Promotes a clean and organized codebase with clear separation of concerns.
+  - Ease of Development - Developers can work on modules independently, leading to faster development cycles.
+  - Flexibility - Allows for easy swapping or upgrading of modules without major changes to the entire system.
+  - Collaboration - Multiple developers can work on different modules simultaneously without conflicts.
+  - Scalability - Systems built with modularity in mind are more adaptable to changes and growth.
+
+  ## What are custom hooks?
+  Custom hooks in React are JavaScript functions that allow you to extract and reuse logic from functional components. They enable you to create reusable pieces of code that encapsulate complex logic and state management, making your components cleaner and more modular. Here's a concise overview -
+
+- Characteristics of Custom Hooks -
+  - Reusable Logic - Custom hooks encapsulate logic that can be reused across multiple components.
+  - Use State and Effects - They can use React's useState, useEffect, and other hooks within them.
+  - Naming Convention - Custom hooks should always start with the word "use" to follow React's hook rules.
+  - No Rendering - Custom hooks don't render components; they provide reusable functionality.
+  - Extract Complexity - Useful for extracting complex state management, side effects, or computations.
+
+- Benefits of Custom Hooks -
+  - Code Reusability - Logic can be reused across different components without duplication.
+  - Cleaner Components - Components become simpler and more focused on rendering, improving readability.
+  - Separation of Concerns - Helps separate UI logic from business logic, enhancing code organization.
+  - Testing - Easier to test custom hooks independently for functionality and edge cases.
+
+#### Example of a Custom Hook -
+```jsx
+import { useState, useEffect } from 'react';
+
+function useWindowResize() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up event listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount
+
+  return windowSize;
+}
+```
+Usage of the Custom Hook -
+```jsx
+import React from 'react';
+import useWindowResize from './useWindowResize';
+
+function ResizeComponent() {
+  const windowSize = useWindowResize();
+
+  return (
+    <div>
+      <p>Window Width: {windowSize.width}</p>
+      <p>Window Height: {windowSize.height}</p>
+    </div>
+  );
+}
+```
