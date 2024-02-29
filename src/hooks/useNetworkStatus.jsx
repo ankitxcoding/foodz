@@ -12,7 +12,6 @@ const useNetworkStatus = () => {
       setNetworkStatus(true);
     });
   }, []);
-
   return networkStatus;
 };
 export default useNetworkStatus;

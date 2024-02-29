@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useNetworkStatus from "../hooks/useNetworkStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -63,6 +64,14 @@ const Body = () => {
     }
   };
 
+  const networkStatus = useNetworkStatus();
+  if (networkStatus === false)
+    return (
+      <h1 className="m-4 p-4 text-5xl font-semibold">
+        Looks like you are offline! Please check your internet connection.
+      </h1>
+    );
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -89,7 +98,7 @@ const Body = () => {
           {topRatedRestaurantsText}
         </button>
       </div>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center mb-10">
         {filteredRestaurants.map((restaurant) => (
           <Link
             key={restaurant?.info?.id}

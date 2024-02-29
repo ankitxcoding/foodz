@@ -1,9 +1,12 @@
 import LOGO from "../assets/images/logo.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useNetworkStatus from "../hooks/useNetworkStatus";
 
 const Header = () => {
   const [login, setLogin] = useState("Login");
+
+  const networkStatus = useNetworkStatus();
 
   const isLogin = () => {
     login === "Login" ? setLogin("Logout") : setLogin("Login");
@@ -28,7 +31,16 @@ const Header = () => {
           <Link to="cart">Cart</Link>
         </li>
         <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
-          <button onClick={isLogin}>{login}</button>
+          <button onClick={isLogin}>
+            {login}{" "}
+            <span
+              className={`${
+                networkStatus === false ? "text-red-500" : "text-green-500"
+              }`}
+            >
+              ●
+            </span>
+          </button>
         </li>
       </ul>
     </div>
