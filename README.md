@@ -1084,3 +1084,31 @@ function ResizeComponent() {
   );
 }
 ```
+
+## Window: online event -
+The `online` event of the `Window` interface is fired when the browser has gained access to the network and the value of `Navigator.onLine` switches to `true`.
+
+### Syntax -
+Use the event name in methods like `addEventListener()`, or set an event handler property.
+```js
+addEventListener("online", (event) => {});
+ononline = (event) => {};
+```
+
+### Event type -
+A generic `Event`.
+**Event handler aliases**
+In addition to the `Window` interface, the event handler property `ononline` is also available on the following targets -
+
+#### Example -
+```js
+// addEventListener version
+window.addEventListener("online", (event) => {
+  console.log("You are now connected to the network.");
+});
+
+// ononline version
+window.ononline = (event) => {
+  console.log("You are now connected to the network.");
+};
+```
