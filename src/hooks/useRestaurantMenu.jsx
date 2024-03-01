@@ -12,18 +12,22 @@ const useRestaurantMenu = (resId) => {
   const fetchMenu = async () => {
     const data = await fetch(RES_MENU_API + resId);
     const json = await data.json();
-    const checkJsonData = async (jsonData) => {
+    const checkCategoriesData = async (jsonData) => {
       for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-        let checkData =
-          json?.data?.cards[i]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-            ?.card?.card;
-        if (checkData !== undefined) {
-          return checkData;
+        let checkCategories =
+          json?.data?.cards[i]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+        if (checkCategories !== undefined) {
+          return checkCategories;
         }
       }
     };
-    const menuData = await checkJsonData(json);
-    setRestaurantMenu(menuData);
+    const categoriesData = await checkCategoriesData(json);
+    const restaurantItemCategories = categoriesData.filter(
+      (c) =>
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+    setRestaurantMenu(restaurantItemCategories);
   };
   return restaurantMenu;
 };

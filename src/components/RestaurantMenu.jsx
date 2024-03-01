@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useRestaurantInfo from "../hooks/useRestaurantInfo";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import { RES_IMG } from "../utils/constants";
+import MenuItemCategory from "./MenuItemCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -24,10 +25,6 @@ const RestaurantMenu = () => {
   } =
     // eslint-disable-next-line no-unsafe-optional-chaining
     restaurantInfo;
-
-  const { itemCards } =
-    // eslint-disable-next-line no-unsafe-optional-chaining
-    restaurantMenu;
 
   return (
     <div className="m-4 grid place-items-center">
@@ -54,12 +51,8 @@ const RestaurantMenu = () => {
       </div>
       <div className="w-1/2 px-10">
         <h2 className="text-4xl font-semibold mt-4">Menu Items</h2>
-        {itemCards.map((item, index) => (
-          <div key={item?.card?.info?.id} className="text-xl font-semibold">
-            ({index + 1}) {item?.card?.info?.name} - ₹
-            {item?.card?.info?.price / 100 ||
-              item?.card?.info?.defaultPrice / 100}
-          </div>
+        {restaurantMenu.map((category) => (
+          <h3 key={category?.card?.card?.title}><MenuItemCategory data={category?.card?.card} /></h3>
         ))}
       </div>
     </div>
