@@ -13,6 +13,7 @@ const useRestaurantInfo = (resId) => {
     const data = await fetch(RES_MENU_API + resId);
     const json = await data.json();
     setRestaurantInfo(json?.data?.cards[0]?.card?.card?.info);
+    console.log(json.data);
   };
   return restaurantInfo;
 };
