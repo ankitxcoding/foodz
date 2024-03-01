@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
 
   return (
     <div className="m-4 grid place-items-center">
-      <div className="flex justify-center shadow-md shadow-gray-300 px-20">
+      <div className="flex justify-center shadow-md shadow-gray-300 px-5">
         <div className="m-4">
           <img
             src={RES_IMG + cloudinaryImageId}
@@ -37,9 +37,9 @@ const RestaurantMenu = () => {
           />
         </div>
         <div className="m-4">
-          <h1 className="text-5xl font-bold">{name}</h1>
-          <h2 className="mt-4 text-3xl font-semibold">{cuisines.join(", ")}</h2>
-          <h3 className="mt-4">
+          <h1 className="m-2 text-5xl font-bold">{name}</h1>
+          <h2 className="m-2 text-3xl font-semibold">{cuisines.join(", ")}</h2>
+          <h3 className="m-2">
             <i
               className={`fa-solid fa-star p-1 text-white rounded-full text-[12px] ${
                 avgRating < 4 ? "bg-red-600" : "bg-green-600"
@@ -49,10 +49,10 @@ const RestaurantMenu = () => {
           </h3>
         </div>
       </div>
-      <div className="w-1/2 px-10">
-        <h2 className="text-4xl font-semibold mt-4">Menu Items</h2>
+      <div className="w-1/2 m-4">
+        <h2 className="text-4xl font-bold m-4 border-b border-black py-2">Menu Items</h2>
         {restaurantMenu.map((category) => (
-          <h3 key={category?.card?.card?.title}><MenuItemCategory data={category?.card?.card} /></h3>
+          <h3 key={category?.card?.card?.title} className="mx-6"><MenuItemCategory data={category?.card?.card} /></h3>
         ))}
       </div>
     </div>
