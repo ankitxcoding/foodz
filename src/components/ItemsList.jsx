@@ -2,7 +2,7 @@ import { RES_IMG } from "../utils/constants";
 
 const ItemList = (prop) => {
   const { items } = prop;
-  console.log(items);
+
   return (
     <div>
       {items.map((item) => (
