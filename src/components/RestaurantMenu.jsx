@@ -1,9 +1,9 @@
-import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantInfo from "../hooks/useRestaurantInfo";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import { RES_IMG } from "../utils/constants";
 import MenuItemCategory from "./MenuItemCategory";
+import MenuShimmer from "./MenuShimmer";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -12,7 +12,7 @@ const RestaurantMenu = () => {
   const restaurantMenu = useRestaurantMenu(resId);
 
   if (!restaurantInfo || !restaurantMenu) {
-    return <Shimmer />;
+    return <MenuShimmer />;
   }
 
   const {
@@ -50,9 +50,13 @@ const RestaurantMenu = () => {
         </div>
       </div>
       <div className="w-1/2 m-4">
-        <h2 className="text-4xl font-bold m-4 border-b border-black py-2">Menu Items</h2>
+        <h2 className="text-4xl font-bold m-4 border-b border-black py-2">
+          Menu Items
+        </h2>
         {restaurantMenu.map((category) => (
-          <h3 key={category?.card?.card?.title} className="mx-6"><MenuItemCategory data={category?.card?.card} /></h3>
+          <h3 key={category?.card?.card?.title} className="mx-6">
+            <MenuItemCategory data={category?.card?.card} />
+          </h3>
         ))}
       </div>
     </div>
