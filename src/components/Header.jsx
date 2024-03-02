@@ -18,19 +18,19 @@ const Header = () => {
         <img className="m-4 w-16 rounded-md" src={LOGO} alt="logo" />
       </Link>
       <ul className="flex flex-col mr-4 sm:flex-row sm:space-x-4">
-        <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
+        <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
           <Link to="/">Home</Link>
         </li>
-        <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
+        <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
           <Link to="/about">About Us</Link>
         </li>
-        <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
+        <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
           <Link to="/contact">Contact Us</Link>
         </li>
-        <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
+        <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
           <Link to="cart">Cart</Link>
         </li>
-        <li className="m-4 font-bold text-lg px-2 py-1 hover:cursor-pointer">
+        <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
           <button onClick={isLogin}>
             {login}{" "}
             <span
