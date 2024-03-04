@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { GITHUB_API } from "../utils/constants";
+import { LINKEDIN_URL } from "../utils/constants";
+import { EMAIL_ID } from "../utils/constants";
 
 const About = () => {
   const [githubData, setGithubData] = useState([]);
@@ -15,7 +17,7 @@ const About = () => {
     console.log(json);
   };
 
-  const { avatar_url, name } = githubData;
+  const { avatar_url, name, html_url } = githubData;
 
   return (
     <>
@@ -24,27 +26,27 @@ const About = () => {
           <img
             src={avatar_url}
             alt="profilePic"
-            className="self-center m-4 rounded-full"
+            className="self-center w-80 m-4 border-2 border-black rounded-full"
           />
           <h1 className="mb-4 text-3xl font-bold">{name}</h1>
           <h1 className="mb-4 text-2xl font-semibold">Follow Me</h1>
           <div>
             <a
-              href="http://github.com/ankitxcoding"
+              href={html_url}
               target="_blank"
-              className="fa-brands fa-github mb-4 mx-2 text-2xl"
+              className="fa-brands fa-github mb-4 mx-2 text-2xl border border-black px-2 py-1 rounded-full hover:text-white hover:bg-black"
               rel="noopener noreferrer"
             ></a>
             <a
-              href="https://www.linkedin.com/in/ankitz9"
+              href={LINKEDIN_URL}
               target="_blank"
-              className="fa-brands fa-linkedin mb-4 mx-2 text-2xl"
+              className="fa-brands fa-linkedin-in mb-4 mx-2 text-2xl border border-black px-[9.5px] py-1 rounded-full hover:text-white hover:bg-[#0A66C2] hover:border-[#0A66C2]"
               rel="noopener noreferrer"
             ></a>
             <a
-              href="mailto:sharmaankitk666@gmail.com"
+              href={"mailto:" + EMAIL_ID}
               target="_blank"
-              className="fa-regular fa-envelope mb-4 mx-2 text-2xl"
+              className="fa-solid fa-envelope mb-4 mx-2 text-2xl border border-black px-2 py-1 rounded-full hover:text-[#E50914] hover:bg-white"
               rel="noopener noreferrer"
             ></a>
           </div>

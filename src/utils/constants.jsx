@@ -8,3 +8,7 @@ export const RES_MENU_API =
   "https://foodz-server.onrender.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=";
 
 export const GITHUB_API = "https://api.github.com/users/ankitxcoding";
+
+export const LINKEDIN_URL = "https://www.linkedin.com/in/ankitz9";
+
+export const EMAIL_ID = "sharmaankitk666@gmail.com";
