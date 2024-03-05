@@ -14,7 +14,6 @@ const About = () => {
     const data = await fetch(GITHUB_API);
     const json = await data.json();
     setGithubData(json);
-    console.log(json);
   };
 
   const { avatar_url, name, html_url } = githubData;

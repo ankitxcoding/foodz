@@ -19,7 +19,10 @@ const Contact = () => {
   };
 
   const handleSubmit = () => {
-    setSubmit("Thanks for contacting! The message has been sent.");
+    if (!email.includes("@") || !email.includes(".")) {
+      setSubmit("Enter a valid email id!");
+      return;
+    } else setSubmit("Thanks for contacting! The message has been sent.");
 
     setName("");
     setEmail("");
@@ -59,7 +62,15 @@ const Contact = () => {
             Submit
           </button>
         </div>
-        <h1 className="text-2xl font-semibold text-center m-4">{submit}</h1>
+        <h1
+          className={`text-2xl font-semibold text-center m-4 ${
+            submit === "Enter a valid email id!"
+              ? "text-red-700"
+              : "text-green-700"
+          }`}
+        >
+          {submit}
+        </h1>
       </div>
     </div>
   );
