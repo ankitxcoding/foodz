@@ -1384,3 +1384,106 @@ function Child({ data }) {
   - Functional components within the `Provider` can use the `useContext` hook to consume the context value directly.
 
 ---
+
+## Redux -
+Redux is a predictable state container for JavaScript applications, primarily used with React but also compatible with other view libraries. It provides a centralized store for managing the state of your application and enables predictable state changes through actions and reducers. Here's a concise overview of Redux -
+
+**Core Concepts of Redux** -
+- Store -
+  - Redux stores the entire state of the application in a single JavaScript object called the "store".
+  - The store is read-only, and the only way to change the state is by dispatching "actions".
+- Actions -
+  - Actions are plain JavaScript objects that describe what happened in the application.
+  - They are dispatched to the store and are the only source of information for the store.
+- Reducers -
+  - Reducers are functions that specify how the application's state changes in response to actions.
+  - They take the current state and an action as arguments, and return the new state based on the action type.
+- State -
+  - The application's state is a single immutable data structure stored in the Redux store.
+  - Components can access the state from the store and subscribe to updates.
+
+**Workflow in Redux** -
+- Action Dispatch -
+  - Components dispatch actions to the Redux store using dispatch(action).
+- Reducers Process Actions -
+  - Reducers listen for dispatched actions and specify how the state should change.
+  - They create a new state based on the action type and payload.
+- State Update -
+  - Redux updates the store with the new state returned by the reducer.
+- Component Re-render -
+  - Components subscribed to the relevant parts of the state are notified of the change and re-render with the updated data.
+
+## Zustand -
+Zustand is a state management library for React applications that provides a simple and flexible way to manage state in a React component. It offers a minimalist and straightforward approach to handling state without the need for reducers, actions, or complex setup. Here's a brief overview of Zustand -
+
+**Key Features of Zustand** -
+- Minimalist API -
+  - Zustand provides a simple and concise API for managing state, reducing boilerplate code.
+- Hooks-Based -
+  - It is based on React hooks, making it easy to integrate with functional components.
+- Immutability and Immer Integration -
+  - Zustand encourages immutability by default, but it also seamlessly integrates with Immer for simpler state updates.
+- Efficient Re-renders -
+  - Zustand optimizes re-renders by tracking which components use which parts of the state.
+- No Boilerplate -
+  - With Zustand, there's no need for actions, reducers, or complex setup. State management becomes more direct and explicit.
+
+**How Zustand Works** -
+- Create a Store -
+  - You define a store using `create` from Zustand, specifying the initial state and any actions or selectors.
+- Use the Store -
+  - Components can use the `useStore` hook to access the state and any actions defined in the store.
+- Update State -
+  - State updates are handled directly within the components using the setter functions returned by `useStore`.
+
+## Getting Started with Redux Toolkit -
+### Purpose -
+The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux -
+- "Configuring a Redux store is too complicated"
+- "I have to add a lot of packages to get Redux to do anything useful"
+- "Redux requires too much boilerplate code"
+
+We can't solve every use case, but in the spirit of `create-react-app`, we can try to provide some tools that abstract over the setup process and handle the most common use cases, as well as include some useful utilities that will let the user simplify their application code.
+
+Redux Toolkit also includes a powerful data fetching and caching capability that we've dubbed "**RTK Query**". It's included in the package as a separate set of entry points. It's optional, but can eliminate the need to hand-write data fetching logic yourself.
+
+**These tools should be beneficial to all Redux users**. Whether you're a brand new Redux user setting up your first project, or an experienced user who wants to simplify an existing application, **Redux Toolkit** can help you make your Redux code better.
+
+## What is Redux Toolkit?
+**Redux Toolkit** (also known as "**RTK**" for short) is our official recommended approach for writing Redux logic. The `@reduxjs/toolkit` package wraps around the core `redux` package, and contains API methods and common dependencies that we think are essential for building a Redux app. Redux Toolkit builds in our suggested best practices, simplifies most Redux tasks, prevents common mistakes, and makes it easier to write Redux applications.
+
+If you are writing any Redux logic today, you should be using Redux Toolkit to write that code!
+
+RTK includes utilities that help simplify many common use cases, including store setup, creating reducers and writing immutable update logic, and even creating entire "slices" of state at once.
+
+Whether you're a brand new Redux user setting up your first project, or an experienced user who wants to simplify an existing application, **Redux Toolkit** can help you make your Redux code better.
+
+## Getting Started with React Redux
+**React Redux** is the official React UI bindings layer for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update state.
+
+### Why Use React Redux?
+Redux itself is a standalone library that can be used with any UI layer or framework, including React, Angular, Vue, Ember, and vanilla JS. Although Redux and React are commonly used together, they are independent of each other.
+
+If you are using Redux with any kind of UI framework, you will normally use a "UI binding" library to tie Redux together with your UI framework, rather than directly interacting with the store from your UI code.
+
+**React Redux is the official Redux UI binding library for React**. If you are using Redux and React together, you should also use React Redux to bind these two libraries.
+
+To understand why you should use React Redux, it may help to understand what a "UI binding library" does.
+
+### Integrating Redux with a UI -
+Using Redux with any UI layer requires the same consistent set of steps -
+- Create a Redux store
+- Subscribe to updates
+- Inside the subscription callback:
+  - Get the current store state
+  - Extract the data needed by this piece of UI
+  - Update the UI with the data
+- If necessary, render the UI with initial state
+- Respond to UI inputs by dispatching Redux actions
+
+While it is possible to write this logic by hand, doing so would become very repetitive. In addition, optimizing UI performance would require complicated logic.
+
+The process of subscribing to the store, checking for updated data, and triggering a re-render can be made more generic and reusable. **A UI binding library like React Redux handles the store interaction logic, so you don't have to write that code yourself**.
+
+---
+
