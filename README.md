@@ -1330,3 +1330,57 @@ PostCSS is a versatile and powerful tool for processing CSS. It's not a framewor
 
 ---
 
+## Props Drilling -
+Props drilling refers to the process of passing down props (properties) from a parent component to a deeply nested child component. When components are nested deeply within a component tree, and some of these components need access to certain props, those props have to be passed down through each level of the component hierarchy, even if intermediary components do not use these props.
+
+**How Props Drilling Works** -
+- Parent Component - Contains the data or state that needs to be passed down.
+- Intermediate Components - Components between the parent and the target child, which act as "middlemen" to pass props down.
+- Target Child Component - The component at the deepest level that needs access to the props.
+
+#### Example -
+Let's say you have a `Grandparent` component that holds some data. It passes this data down to `Parent`, which then passes it further down to `Child`, which finally displays the data.
+```jsx
+// Grandparent Component
+function Grandparent() {
+  const data = "Hello from Grandparent";
+  return <Parent data={data} />;
+}
+
+// Parent Component
+function Parent({ data }) {
+  return <Child data={data} />;
+}
+
+// Child Component
+function Child({ data }) {
+  return <div>{data}</div>;
+}
+```
+**In this example** -
+`Grandparent` holds the `data`.
+`Parent` receives `data` as a prop and passes it to `Child`.
+`Child` then displays the `data`.
+
+**Challenges with Props Drilling** -
+- Passing Unnecessary Props - Intermediate components may not use the props they receive, but they have to pass them down anyway.
+- Complexity - As the application grows, props drilling can lead to complex and hard-to-manage prop chains.
+
+**Solutions to Props Drilling** -
+- Context API - React's Context API allows you to share data across the component tree without explicitly passing props through each level.
+- State Management Libraries - Libraries like Redux or Recoil can manage global or local state, reducing the need for props drilling.
+- Render Props or Higher-Order Components (HOCs) - These patterns allow components to specify the behavior they need, avoiding deep prop drilling.
+
+### useContext -
+
+`useContext` is a React Hook that allows functional components to consume context created by the `React.createContext` API. Context in React is a way to share values like props between components without having to explicitly pass the data through every level of the component tree. Here's a concise overview of `useContext` -
+
+**How useContext Works** -
+- Creating Context -
+  - First, you create a context using `React.createContext`. This creates a context object that consists of two components - `Provider` and `Consumer` (though `useContext` is the modern way to consume context instead of `Consumer`).
+- Providing Context -
+  - You wrap the parent component or a higher-level component with the `Provider`, passing it a `value` prop. This `value` will be the data that components consuming the context will have access to.
+- Consuming Context -
+  - Functional components within the `Provider` can use the `useContext` hook to consume the context value directly.
+
+---
