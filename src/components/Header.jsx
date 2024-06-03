@@ -13,12 +13,12 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row justify-between items-center shadow-sm shadow-gray-500">
+    <div className="flex flex-col sm:flex-row items-center sm:justify-between px-10 sm:px-4 py-2 shadow-sm shadow-gray-500">
       <Link to="/">
         <img className="m-4 w-16 rounded-md" src={LOGO} alt="logo" />
       </Link>
-      <ul className="flex flex-col mr-4 sm:flex-row sm:space-x-4">
-        <li className="my-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
+      <ul className="flex justify-center flex-wrap">
+        <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
           <Link to="/">Home</Link>
         </li>
         <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
