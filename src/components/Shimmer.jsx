@@ -21,10 +21,14 @@ const Shimmer = () => {
 
   return (
     <>
-      <div className="flex m-4 justify-center">
-        <div className="mx-1 w-[25%] h-10 px-20 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300 animate-pulse"></div>
-        <div className="mx-1 w-[6%] h-10 px-4 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300 animate-pulse"></div>
-        <button className="mx-1 w-[13%] h-10 px-4 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300 animate-pulse"></button>
+      <div className="flex m-4 items-center justify-center flex-col sm:flex-row">
+        <div className="flex justify-center">
+          <div className="mx-1 w-60 h-10 px-20 my-1 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300 animate-pulse"></div>
+          <div className="mx-1 w-28 h-10 px-4 my-1 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300 animate-pulse"></div>
+        </div>
+        <div className="flex justify-center">
+          <button className="mx-1 w-48 h-10 px-4 my-1 text-transparent bg-gray-200 rounded-lg shadow shadow-gray-300 animate-pulse"></button>
+        </div>
       </div>
       <div className="m-4 flex flex-wrap justify-center animate-pulse">
         {shimmerBlocks(10)}
