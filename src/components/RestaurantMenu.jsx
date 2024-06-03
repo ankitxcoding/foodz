@@ -29,7 +29,7 @@ const RestaurantMenu = () => {
   return (
     <div className="m-4 grid place-items-center">
       <div className="flex justify-center shadow-md shadow-gray-300 px-5">
-        <div className="m-4">
+        <div className="m-4 flex items-center">
           <img
             src={RES_IMG + cloudinaryImageId}
             alt="restaurantImg"
@@ -37,8 +37,8 @@ const RestaurantMenu = () => {
           />
         </div>
         <div className="m-4">
-          <h1 className="m-2 text-5xl font-bold">{name}</h1>
-          <h2 className="m-2 text-3xl font-semibold">{cuisines.join(", ")}</h2>
+          <h1 className="m-2 text-xl sm:text-5xl font-bold">{name}</h1>
+          <h2 className="m-2 text-base sm:text-3xl font-semibold">{cuisines.join(", ")}</h2>
           <h3 className="m-2">
             <i
               className={`fa-solid fa-star p-1 text-white rounded-full text-[12px] ${
@@ -49,7 +49,7 @@ const RestaurantMenu = () => {
           </h3>
         </div>
       </div>
-      <div className="w-1/2 m-4">
+      <div className="w-full sm:w-1/2 m-4">
         <h2 className="text-4xl font-bold m-4 border-b border-black py-2">
           Menu Items
         </h2>
