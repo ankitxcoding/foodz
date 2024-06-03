@@ -76,27 +76,31 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="m-4 flex justify-center">
-        <input
-          className="border-2 border-black font-semibold w-1/4 px-4 py-2 m-1 rounded-md"
-          type="text"
-          placeholder="Search Restaurants"
-          value={searchRestaurant}
-          onChange={(e) => setSearchRestaurant(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
-        <button
-          className="border-2 border-black bg-black text-white font-semibold hover:text-green-500 px-4 py-2 m-1 rounded-md"
-          onClick={searchForRestaurants}
-        >
-          Search
-        </button>
-        <button
-          className="border-2 border-black bg-black text-white font-semibold hover:text-green-500 px-4 py-2 m-1 rounded-md"
-          onClick={topRatedRestaurants}
-        >
-          {topRatedRestaurantsText}
-        </button>
+      <div className="m-4 flex items-center justify-center flex-col sm:flex-row">
+        <div className="flex justify-center">
+          <input
+            className="border-2 border-black font-semibold px-4 min-h-full py-2 m-1 rounded-md"
+            type="text"
+            placeholder="Search Restaurants"
+            value={searchRestaurant}
+            onChange={(e) => setSearchRestaurant(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+          <button
+            className="border-2 border-black bg-black text-white text-xs sm:text-base font-semibold hover:text-green-500 px-4 py-2 m-1 rounded-md"
+            onClick={searchForRestaurants}
+          >
+            Search
+          </button>
+        </div>
+        <div className="flex justify-center">
+          <button
+            className="border-2 border-black bg-black text-white text-xs sm:text-base font-semibold hover:text-green-500 px-4 py-3 sm:py-2 m-1 rounded-md"
+            onClick={topRatedRestaurants}
+          >
+            {topRatedRestaurantsText}
+          </button>
+        </div>
       </div>
       <div className="flex flex-wrap justify-center mb-10">
         {filteredRestaurants.map((restaurant) => (
