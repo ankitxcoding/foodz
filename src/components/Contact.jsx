@@ -4,7 +4,8 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [submit, setSubmit] = useState("");
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState("");
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -18,15 +19,29 @@ const Contact = () => {
     setMessage(e.target.value);
   };
 
-  const handleSubmit = () => {
-    if (!email.includes("@") || !email.includes(".")) {
-      setSubmit("Enter a valid email id!");
-      return;
-    } else setSubmit("Thanks for contacting! The message has been sent.");
+  const validateForm = () => {
+    let errors = {};
 
-    setName("");
-    setEmail("");
-    setMessage("");
+    if (!name) errors.name = "Name is required!";
+    if (!email) errors.email = "Email is required!";
+    if (!message) errors.message = "Enter your message!";
+
+    setErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = () => {
+    if (validateForm()) {
+      setStatus("Thanks for contacting! The message has been sent.");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setErrors({});
+      setTimeout(() => {
+        setStatus("");
+      }, 5000);
+    }
   };
 
   return (
@@ -35,25 +50,34 @@ const Contact = () => {
       <div className="w-full md:w-1/2">
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Enter Your Name"
           value={name}
           onChange={handleName}
           className="border-2 border-gray-500 rounded-md p-2 m-2 w-full"
         />
+        {errors.name ? (
+          <p className="mx-4 text-red-500">{errors.name}</p>
+        ) : null}
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Enter Your Email"
           value={email}
           onChange={handleEmail}
           className="border-2 border-gray-500 rounded-md p-2 m-2 w-full"
         />
+        {errors.email ? (
+          <p className="mx-4 text-red-500">{errors.email}</p>
+        ) : null}
         <textarea
           type="text"
-          placeholder="Message"
+          placeholder="Enter Message"
           value={message}
           onChange={handleMessage}
           className="border-2 border-gray-500 rounded-md p-2 m-2 w-full"
         />
+        {errors.message ? (
+          <p className="mx-4 text-red-500">{errors.message}</p>
+        ) : null}
         <div className="flex justify-center">
           <button
             onClick={handleSubmit}
@@ -62,15 +86,9 @@ const Contact = () => {
             Submit
           </button>
         </div>
-        <h1
-          className={`text-2xl font-semibold text-center m-4 ${
-            submit === "Enter a valid email id!"
-              ? "text-red-700"
-              : "text-green-700"
-          }`}
-        >
-          {submit}
-        </h1>
+        <div className="m-2 flex justify-center">
+          {status ? <p className="text-green-500">{status}</p> : null}
+        </div>
       </div>
     </div>
   );
