@@ -1,14 +1,13 @@
 import { useDispatch } from "react-redux";
-import { addItem } from "../store/slices/cartSlice";
 import { RES_IMG } from "../utils/constants";
+import { removeItem } from "../store/slices/cartSlice";
 
-const ItemList = (prop) => {
+const CartItemList = (prop) => {
   const { items } = prop;
-
   const dispatch = useDispatch();
 
-  const handleAddingItem = (item) => {
-    dispatch(addItem(item));
+  const handleRemovingItem = () => {
+    dispatch(removeItem());
   };
 
   return (
@@ -36,10 +35,10 @@ const ItemList = (prop) => {
                 className="w-full rounded-md"
               />
               <button
-                onClick={() => handleAddingItem(item)}
+                onClick={() => handleRemovingItem()}
                 className="mx-9 py-2 px-4 text-xs font-semibold bg-black text-lime-500 border border-gray-500 rounded-md absolute -bottom-1 hover:text-white"
               >
-                ADD⁺
+                Remove
               </button>
             </div>
           </div>
@@ -48,4 +47,4 @@ const ItemList = (prop) => {
     </div>
   );
 };
-export default ItemList;
+export default CartItemList;

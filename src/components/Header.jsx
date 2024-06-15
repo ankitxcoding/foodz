@@ -2,6 +2,7 @@ import LOGO from "../assets/images/logo.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useNetworkStatus from "../hooks/useNetworkStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [login, setLogin] = useState("Login");
@@ -11,6 +12,8 @@ const Header = () => {
   const isLogin = () => {
     login === "Login" ? setLogin("Logout") : setLogin("Login");
   };
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex flex-col sm:flex-row items-center sm:justify-between px-10 sm:px-4 py-2 shadow-sm shadow-gray-500">
@@ -28,7 +31,7 @@ const Header = () => {
           <Link to="/contact">Contact</Link>
         </li>
         <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
-          <Link to="cart">Cart</Link>
+          <Link to="cart">Cart {cartItems.length}</Link>
         </li>
         <li className="m-4 text-black font-bold text-lg hover:cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
           <button onClick={isLogin}>
