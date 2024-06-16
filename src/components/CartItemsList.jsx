@@ -6,8 +6,8 @@ const CartItemList = (prop) => {
   const { items } = prop;
   const dispatch = useDispatch();
 
-  const handleRemovingItem = () => {
-    dispatch(removeItem());
+  const handleRemovingItem = (itemId) => {
+    dispatch(removeItem(itemId));
   };
 
   return (
@@ -35,7 +35,7 @@ const CartItemList = (prop) => {
                 className="w-full rounded-md"
               />
               <button
-                onClick={() => handleRemovingItem()}
+                onClick={() => handleRemovingItem(item?.card?.info?.id)}
                 className="mx-9 py-2 px-4 text-xs font-semibold bg-black text-lime-500 border border-gray-500 rounded-md absolute -bottom-1 hover:text-white"
               >
                 Remove
